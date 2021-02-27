@@ -55,6 +55,33 @@ func TestConnectionInfoIterator(t *testing.T) {
 			},
 		},
 		{
+			name: "Nil AllocationEndpoints",
+			in: []*GameServerAllocationPolicy{
+				{
+					Spec: GameServerAllocationPolicySpec{
+						Priority: 1,
+						Weight:   100,
+						ConnectionInfo: ClusterConnectionInfo{
+							ClusterName:         "cluster1",
+							SecretName:          "secret-name",
+							AllocationEndpoints: nil,
+							Namespace:           "ns1",
+							ServerCA:            []byte("c2VydmVyQ0E="),
+						},
+					},
+				},
+			},
+			want: []ClusterConnectionInfo{
+				{
+					ClusterName:         "cluster1",
+					SecretName:          "secret-name",
+					AllocationEndpoints: nil,
+					Namespace:           "ns1",
+					ServerCA:            []byte("c2VydmVyQ0E="),
+				},
+			},
+		},
+		{
 			name: "Different priorities and weight same cluster",
 			in: []*GameServerAllocationPolicy{
 				{

@@ -122,7 +122,7 @@ If using REST use
 ```bash
 #!/bin/bash
 
-curl --key ${KEY_FILE} --cert ${CERT_FILE} --cacert ${TLS_CA_FILE} -H "Content-Type: application/json" --data '{"namespace":"'${NAMESPACE}'", "multi_cluster_settings":{"enabled":"true"}}' https://${EXTERNAL_IP}/gameserverallocation -XPOST
+curl --key ${KEY_FILE} --cert ${CERT_FILE} --cacert ${TLS_CA_FILE} -H "Content-Type: application/json" --data '{"namespace":"'${NAMESPACE}'", "multiClusterSetting":{"enabled":"true"}}' https://${EXTERNAL_IP}/gameserverallocation -XPOST
 ```
 
 ## Troubleshooting

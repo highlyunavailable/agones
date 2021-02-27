@@ -311,7 +311,7 @@ func (c *Allocator) applyMultiClusterAllocation(ctx context.Context, gsa *alloca
 		if connectionInfo == nil {
 			break
 		}
-		if len(connectionInfo.AllocationEndpoints) == 0 {
+		if connectionInfo.AllocationEndpoints == nil || len(connectionInfo.AllocationEndpoints) == 0 {
 			// Change the namespace to the policy namespace and allocate locally
 			gsaCopy := gsa
 			if gsa.Namespace != connectionInfo.Namespace {
